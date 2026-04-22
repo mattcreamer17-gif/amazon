@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>A read on where orchestration sits in your customers' Bedrock and Q stacks</title>
+<meta name="description" content="A read on where orchestration sits in your customers' Bedrock and Q stacks. Prepared for booth 420, eMerge Americas 2026." />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="topbar" role="banner">
+  <div class="topbar__inner">
+    <a class="topbar__brand" href="https://aws.amazon.com/" target="_blank" rel="noopener" aria-label="AWS">
+      <img src="logo.svg" alt="AWS" width="72" height="44" />
+    </a>
+    <nav class="topbar__nav" aria-label="Section navigation">
+      <a href="#frame">Frame</a>
+      <a href="#diagram">Architecture</a>
+      <a href="#proof">Proof</a>
+      <a href="#paper">Paper</a>
+      <a href="#next">Next step</a>
+    </nav>
+  </div>
+  <div class="topbar__ribbon" aria-hidden="true"></div>
+</header>
+
+<main id="main" class="doc">
+
+  <section class="hero" aria-labelledby="pagetitle">
+    <div class="hero__meta">
+      <span class="chip chip--mono">Prepared for booth 420</span>
+      <span class="chip chip--mono">eMerge Americas, Miami</span>
+      <span class="chip chip--mono">April 23 to 24, 2026</span>
+    </div>
+    <h1 id="pagetitle" class="hero__h1">
+      A read on where orchestration sits in your customers' Bedrock and Q stacks.
+    </h1>
+    <p class="hero__sub">
+      The infrastructure and the model layer are in place. The bottleneck AWS partners see repeatedly is the layer above: which of a customer's workflows belong on Bedrock, which belong in a rules engine, which are simpler in Postgres. That is Eduba's work.
+    </p>
+    <div class="hero__ctas">
+      <a class="btn btn--primary" href="https://calendly.com/thecro-eduba/30min" target="_blank" rel="noopener">
+        Book 30 minutes with Matt
+      </a>
+      <a class="btn btn--ghost" href="#frame">See the frame</a>
+    </div>
+
+    <dl class="stat-strip" aria-label="Key numbers">
+      <div class="stat">
+        <dt>People trained since May 2025</dt>
+        <dd>1,500+</dd>
+      </div>
+      <div class="stat">
+        <dt>Hours saved per year</dt>
+        <dd>6,000 to 9,000</dd>
+      </div>
+      <div class="stat">
+        <dt>30-day adoption</dt>
+        <dd>95%</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="band" aria-labelledby="context">
+    <div class="band__inner">
+      <h2 id="context" class="h2">Why this, why now</h2>
+      <div class="context-grid">
+        <p class="lede">
+          AWS Q4 2025 grew 24 percent, a 13-quarter high, with $244B in backlog and $200B of FY26 capex committed. re:Invent 2025 shipped Nova 2, Kiro, and AgentCore Policy, Evaluations, and Memory. On the public-sector side, Miami Beach has been an AWS Champion since 2024, Tamarac cofounded the Florida Amazon Connect user group, and the program now includes 16 cities.
+        </p>
+        <ul class="signal-list" aria-label="Recent AWS signals">
+          <li><span class="signal-tag">re:Invent 2025</span> <a href="https://aws.amazon.com/bedrock/" target="_blank" rel="noopener">Amazon Bedrock AgentCore</a> ships Policy, Evaluations, Memory.</li>
+          <li><span class="signal-tag">Federal</span> Up to $50B announced for U.S. federal AI, supercomputing capacity across GovCloud, Secret, Top Secret regions.</li>
+          <li><span class="signal-tag">Training</span> Agentic AI classroom courses added in January 2026. Demand is outpacing the Premier Tier bench.</li>
+          <li><span class="signal-tag">Florida</span> 16 municipalities now in the Amazon Connect State of Florida Government User Group.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--alt" id="frame" aria-labelledby="frame-h">
+    <div class="band__inner">
+      <div class="kicker">The frame</div>
+      <h2 id="frame-h" class="h2">Computational orchestration, in three numbers</h2>
+      <p class="lede">
+        Most organizations put LLMs where a database would do the job faster and cheaper. Before a customer designs an AgentCore policy, they benefit from a layer-assignment pass across their actual workflow inventory.
+      </p>
+
+      <div class="frame-grid" role="list">
+        <article class="frame-card" role="listitem">
+          <header class="frame-card__head">
+            <span class="frame-card__num">60<span>%</span></span>
+            <h3>Traditional code and data</h3>
+          </header>
+          <p>Schemas, joins, batch jobs, queues. Postgres, DynamoDB, S3, Glue, Redshift. Most of the estate lives here and stays here.</p>
+        </article>
+        <article class="frame-card frame-card--mid" role="listitem">
+          <header class="frame-card__head">
+            <span class="frame-card__num">30<span>%</span></span>
+            <h3>Rule-based logic</h3>
+          </header>
+          <p>Deterministic flows, policy checks, routing, eligibility. Cheaper and more auditable than a model call. AgentCore Policy fits here.</p>
+        </article>
+        <article class="frame-card frame-card--ai" role="listitem">
+          <header class="frame-card__head">
+            <span class="frame-card__num">10<span>%</span></span>
+            <h3>Genuine AI</h3>
+          </header>
+          <p>Unstructured judgment, synthesis, drafting, extraction at scale. Bedrock foundation models, SageMaker AI, Nova 2, AgentCore Memory.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="diagram" aria-labelledby="diag-h">
+    <div class="band__inner">
+      <div class="kicker">Applied to a Bedrock + Q customer</div>
+      <h2 id="diag-h" class="h2">The layer-assignment pass on an AWS stack</h2>
+      <p class="lede">A single diagram of the frame on the services a typical enterprise customer already owns. Eduba does the assignment. AWS keeps delivering the platform underneath.</p>
+
+      <figure class="diagram" aria-label="60/30/10 layer assignment on an AWS customer stack">
+        <div class="diagram__grid">
+
+          <div class="diagram__lane lane--ai">
+            <div class="lane__label">10% genuine AI</div>
+            <div class="lane__nodes">
+              <span class="node">Bedrock</span>
+              <span class="node">Nova 2</span>
+              <span class="node">SageMaker AI</span>
+              <span class="node">AgentCore Memory</span>
+              <span class="node">Amazon Q</span>
+            </div>
+          </div>
+
+          <div class="diagram__lane lane--rules">
+            <div class="lane__label">30% rules</div>
+            <div class="lane__nodes">
+              <span class="node">AgentCore Policy</span>
+              <span class="node">Step Functions</span>
+              <span class="node">EventBridge rules</span>
+              <span class="node">Config, Audit Manager</span>
+            </div>
+          </div>
+
+          <div class="diagram__lane lane--code">
+            <div class="lane__label">60% code and data</div>
+            <div class="lane__nodes">
+              <span class="node">Aurora Postgres</span>
+              <span class="node">DynamoDB</span>
+              <span class="node">S3</span>
+              <span class="node">Glue, Athena</span>
+              <span class="node">Lambda, ECS</span>
+              <span class="node">OpenSearch</span>
+            </div>
+          </div>
+
+          <div class="diagram__base">
+            <span>IAM</span><span>CloudTrail</span><span>GuardDuty</span><span>GovCloud, HIPAA, FedRAMP</span>
+          </div>
+        </div>
+        <figcaption>
+          Eduba sits at the assignment line between lanes. AWS Solutions Architects keep the platform. Services partners keep the build. The layer above is where the customer's ROI on Bedrock and Q actually gets decided.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band band--alt" id="proof" aria-labelledby="proof-h">
+    <div class="band__inner">
+      <div class="kicker">Matching case</div>
+      <h2 id="proof-h" class="h2">Correlation One: Pacific Life and Colgate-Palmolive</h2>
+
+      <div class="proof-grid">
+        <div class="proof-copy">
+          <p>Correlation One brought Eduba in to train 1,500 people across Pacific Life and Colgate-Palmolive since May 2025. Six thousand to nine thousand hours saved per year. 95 percent of participants still using the tools 30 days after the workshop.</p>
+          <p>The pattern transfers onto AWS accounts that have bought Q or Bedrock seats at scale and need adoption to stick. AWS account teams routinely ask who can take a customer through end-user training at scale. The 95 percent 30-day number is the answer.</p>
+          <p class="credential-line">
+            KPMG UK, one of the Big Four, ran the same model with 40+ executives on the leadership side.
+          </p>
+        </div>
+        <dl class="big-stats" aria-label="Proof numbers">
+          <div>
+            <dt>People trained</dt>
+            <dd>1,500<span>+</span></dd>
+          </div>
+          <div>
+            <dt>Hours saved per year</dt>
+            <dd>6K<span> to 9K</span></dd>
+          </div>
+          <div>
+            <dt>Adoption at 30 days</dt>
+            <dd>95<span>%</span></dd>
+          </div>
+          <div>
+            <dt>Since</dt>
+            <dd>May<span> 2025</span></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="paper" aria-labelledby="paper-h">
+    <div class="band__inner">
+      <div class="kicker">The paper</div>
+      <h2 id="paper-h" class="h2">Interpretable Context Methodology</h2>
+
+      <figure class="paper-card">
+        <blockquote>
+          Agent context organized as a layered filesystem, from L0 identity through L4 working artifacts. Measurable interpretability and reproducibility across a 52-member practitioner community. Maps directly onto AgentCore Memory and AgentCore Policy.
+        </blockquote>
+        <figcaption class="paper-card__meta">
+          <span class="pill">Submitted to ACM TiiS</span>
+          <span class="pill">MIT license</span>
+          <a class="pill pill--link" href="https://github.com/RinDig/Interpretable-Context-Methodology-ICM-" target="_blank" rel="noopener">
+            github.com/RinDig/Interpretable-Context-Methodology-ICM-
+          </a>
+        </figcaption>
+      </figure>
+
+      <p class="aside">
+        A paper, not a pitch deck. Reads right inside AWS's technical culture. An AWS Solutions Architect can hand it to a customer as a reference on AgentCore context hygiene.
+      </p>
+
+      <details class="extra">
+        <summary>Adjacent work, for regulated-industry customers</summary>
+        <p>
+          <strong>Ethics Engine.</strong> A psychometric assessment tool for evaluating ideological and moral patterns in LLMs. Preprint at <a href="https://arxiv.org/abs/2510.11742" target="_blank" rel="noopener">arxiv.org/abs/2510.11742</a>. Code at <a href="https://github.com/RinDig/AuditEngine" target="_blank" rel="noopener">github.com/RinDig/AuditEngine</a>. Relevant to healthcare, finance, legal, and public-sector customers evaluating model behavior under governance constraints.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <section class="band band--alt" aria-labelledby="routing-h">
+    <div class="band__inner">
+      <div class="kicker">Channel posture</div>
+      <h2 id="routing-h" class="h2">How Eduba slots in</h2>
+      <div class="routing-grid">
+        <article class="routing-card">
+          <h3>Co-sell with an AWS account team</h3>
+          <p>Eduba delivers the layer-assignment pass and the end-user enablement. AWS keeps the platform. The services partner keeps the build. The customer gets adoption that sticks past the proof of concept.</p>
+        </article>
+        <article class="routing-card">
+          <h3>Training-led motion into L&amp;D</h3>
+          <p>Entry through the customer's learning function. Real workflow data captured during training becomes the spec for the deeper orchestration engagement.</p>
+        </article>
+        <article class="routing-card">
+          <h3>Handoff for production ML</h3>
+          <p>Eduba partners with <a href="https://nlplogix.com/" target="_blank" rel="noopener">NLP Logix</a> for work that sits below the orchestration layer. NLP Logix has been in machine learning since 2011 and runs over 150 data scientists.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--credentials" aria-labelledby="cred-h">
+    <div class="band__inner">
+      <h2 id="cred-h" class="h2 h2--small">Credential row</h2>
+      <ul class="badge-row" aria-label="Credibility badges">
+        <li class="badge"><span class="badge__k">Published</span><span class="badge__v">ACM TiiS (ICM)</span></li>
+        <li class="badge"><span class="badge__k">Preprint</span><span class="badge__v"><a href="https://arxiv.org/abs/2510.11742" target="_blank" rel="noopener">arXiv 2510.11742</a></span></li>
+        <li class="badge"><span class="badge__k">UEI</span><span class="badge__v">Y77RULHKK9Q1</span></li>
+        <li class="badge"><span class="badge__k">NAICS</span><span class="badge__v">541611, 541512, 611430</span></li>
+        <li class="badge"><span class="badge__k">Founder</span><span class="badge__v">USMC veteran, MSc Edinburgh</span></li>
+        <li class="badge"><span class="badge__k">Case</span><span class="badge__v">Correlation One, Pacific Life, Colgate-Palmolive</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta" id="next" aria-labelledby="cta-h">
+    <div class="band__inner cta__inner">
+      <div>
+        <div class="kicker kicker--light">Next step</div>
+        <h2 id="cta-h" class="h2 h2--on-dark">30 minutes with Matt Creamer</h2>
+        <p class="cta__sub">
+          Bring one AWS customer account where Bedrock or Q is stalled past the proof of concept. Eduba will return a written layer-assignment memo within one week of the call.
+        </p>
+        <div class="cta__actions">
+          <a class="btn btn--primary btn--lg" href="https://calendly.com/thecro-eduba/30min" target="_blank" rel="noopener">
+            calendly.com/thecro-eduba/30min
+          </a>
+          <a class="btn btn--ghost btn--on-dark" href="mailto:thecro@eduba.io">thecro@eduba.io</a>
+        </div>
+      </div>
+      <aside class="cta__card" aria-label="Booth logistics">
+        <div class="cta__card-row"><span>Booth</span><strong>420</strong></div>
+        <div class="cta__card-row"><span>Event</span><strong>eMerge Americas</strong></div>
+        <div class="cta__card-row"><span>Dates</span><strong>April 23 to 24, 2026</strong></div>
+        <div class="cta__card-row"><span>On site</span><strong>Matt Creamer, Eduba CRO</strong></div>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot" role="contentinfo">
+  <div class="foot__inner">
+    <p class="foot__line">
+      Prepared by Eduba, <a href="https://eduba.io" target="_blank" rel="noopener">eduba.io</a>. For the AWS team at booth 420, eMerge Americas 2026.
+    </p>
+    <p class="foot__fine">
+      AWS, Amazon Bedrock, Amazon Q, SageMaker, AgentCore, Nova, Kiro, Graviton, Trainium, Inferentia, and the Smile logo are trademarks of Amazon.com, Inc. or its affiliates. Used here for reference only. This page is a prospect-facing working document, not an AWS publication.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
